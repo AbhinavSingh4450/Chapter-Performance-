@@ -10,7 +10,6 @@ require('dotenv').config()
 
 const connectDB=require("./config/db")
 const cookieParser=require('cookie-parser');
-const cors=require('cors')
 
 
 const port=process.env.PORT;
@@ -21,15 +20,7 @@ app.use(cookieParser());
 
 const isVercel = !!process.env.VERCEL; 
 
-const allowedOrigins = ["http://localhost:5173", "https://devconnect-omega.vercel.app"];
 
-app.use(
-  cors({
-    origin: allowedOrigins,
-    methods: "GET,POST,PATCH,PUT,DELETE,OPTIONS",
-    credentials: true,
-  })
-);
 
 app.use(async (req, res, next) => {
   if (mongoose.connection.readyState === 0) {
