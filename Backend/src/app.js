@@ -3,8 +3,6 @@ const app= express();
 const mongoose = require("mongoose");
 const chapterRouter = require('./routes/chapter');
 require('./config/db')
-
-
 require('dotenv').config()
 
 

@@ -1,4 +1,12 @@
-const {Redis}=require('ioredis');
-const client=new Redis();
+const { Redis } = require('ioredis');
+require('dotenv').config()
 
-module.exports=client;
+
+// Get Redis URL from environment variables
+const redisUrl = process.env.REDIS_URL;
+
+// Create Redis client using the URL
+const redisClient = new Redis(redisUrl);
+
+module.exports = redisClient;
+
