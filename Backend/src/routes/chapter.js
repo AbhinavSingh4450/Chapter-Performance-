@@ -40,6 +40,7 @@ chapterRouter.get('/api/v1/chapters', rateLimiter, async (req, res) => {
 
     // 1. Check if data is in cache
     const cachedData = await redisClient.get(queryKey);
+
     if (cachedData) {
       return res.status(200).json({
         success: true,
