@@ -5,6 +5,11 @@ const chapterRouter = require('./routes/chapter');
 require('./config/db')
 
 
+const { connectionRedis } = require('./config/redis');
+
+(async()=>{
+ const redisClient=await connectionRedis();
+})();
 
 require('dotenv').config()
 
